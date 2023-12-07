@@ -1,0 +1,42 @@
+{
+	"name": "benchmark",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"esbuild": "esbuild src/index.js --bundle --outfile=dist/esbuild.js --minify --sourcemap",
+		"webpack": "webpack --config webpack.config.js",
+		"webpack:analyze": "webpack --config webpack.config.js --profile --json > stats.json && webpack-bundle-analyzer stats.json",
+		"snowpack": "snowpack build --config snowpack.config.js",
+		"vite": "vite build --config vite.config.js",
+		"wmr": "wmr build --config wmr.config.js",
+		"rollup": "rollup -c rollup.config.js",
+		"rollup:analyze": "rollup -c rollup.config.js --plugin analyze",
+		"rollup:esbuild": "rollup -c rollup.config.js --plugin esbuild",
+		"rollup:esbuild:analyze": "rollup -c rollup.config.js --plugin esbuild --plugin analyze",
+		"rollup:esbuild:analyze:treeshake": "rollup -c rollup.config.js --plugin esbuild --plugin analyze --plugin treeshake",
+		"rollup:esbuild:treeshake": "rollup -c rollup.config.js --plugin esbuild --plugin treeshake",
+		"rollup:analyze:treeshake": "rollup -c rollup.config.js --plugin analyze --plugin treeshake",
+		"rollup:treeshake": "rollup -c rollup.config.js --plugin treeshake",
+		"rollup:analyze:esbuild": "rollup -c rollup.config.js --plugin analyze --plugin esbuild",
+		"rollup:esbuild:treeshake:analyze": "rollup -c rollup.config.js --plugin esbuild --plugin treeshake --plugin analyze",
+		"rollup:treeshake:analyze": "rollup -c rollup.config.js --plugin treeshake --plugin analyze"
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"esbuild": "^0.19.8",
+		"rollup": "^4.6.1",
+		"rollup-plugin-commonjs": "^10.1.0",
+		"rollup-plugin-node-resolve": "^5.2.0",
+		"snowpack": "^3.8.8",
+		"webpack": "^5.89.0",
+		"webpack-bundle-analyzer": "^4.10.1",
+		"webpack-cli": "^5.1.4"
+	},
+	"dependencies": {
+		"vite": "^5.0.6",
+		"wmr": "^3.8.0"
+	}
+}
